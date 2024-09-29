@@ -3,10 +3,13 @@ const { Storage } = require("@google-cloud/storage");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mysql = require('mysql');
+const PORT = process.env.PORT || 3000
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+//aa
 
 const connection = mysql.createConnection({
     user: 'sharmasahaj',
@@ -50,6 +53,6 @@ app.post("/generate-upload-url", async (req, res) => {
   res.status(200).send({ uploadUrl: url });
 });
 
-app.listen(3000, () => {
-  console.log("Server started on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log("Server started on http://localhost:" + PORT);
 });
