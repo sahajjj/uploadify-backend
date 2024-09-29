@@ -6,7 +6,12 @@ const mysql = require('mysql');
 const PORT = process.env.PORT || 3000
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow requests from this origin
+  methods: ['GET', 'POST', 'PUT'], // Specify allowed methods
+  credentials: false // Include credentials if needed (optional)
+}));
+
 app.use(bodyParser.json());
 
 //aa
